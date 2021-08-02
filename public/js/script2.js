@@ -12,8 +12,8 @@ class Player {
   }
 
   reset() {
-    this.col = 0;
-    this.row = 0;
+    this.col = 19;
+    this.row = 18;
   }
 
 }
@@ -140,6 +140,7 @@ class Maze {
       for (let row = 0; row < this.rows; row++) {
         if (!this.cells[col][row].visited) {
           return true;
+          console.log(c);
         }
       }
     }
@@ -200,40 +201,40 @@ class Maze {
 
 }
 
-function onClick(event) {
+function onClick(event) { //regenerate maze
   player.reset();
   maze.cols = document.getElementById("cols").value;
   maze.rows = document.getElementById("rows").value;
   maze.generate();
 }
 
-function onControlClick(event) {
-  switch (event.target.id) {
-    case 'left':
-      if (!maze.cells[player.col][player.row].westWall) {
-        player.col -= 1;
-      }
-      break;
-    case 'right':
-      if (!maze.cells[player.col][player.row].eastWall) {
-        player.col += 1;
-      }
-      break;
-    case 'down':
-      if (!maze.cells[player.col][player.row].southWall) {
-        player.row += 1;
-      }
-      break;
-    case 'up':
-      if (!maze.cells[player.col][player.row].northWall) {
-        player.row -= 1;
-      }
-      break;
-    default:
-      break;
-  }
-  maze.redraw();
-}
+// function onControlClick(event) {
+//   switch (event.target.id) {
+//     case 'left':
+//       if (!maze.cells[player.col][player.row].westWall) {
+//         player.col -= 1;
+//       }
+//       break;
+//     case 'right':
+//       if (!maze.cells[player.col][player.row].eastWall) {
+//         player.col += 1;
+//       }
+//       break;
+//     case 'down':
+//       if (!maze.cells[player.col][player.row].southWall) {
+//         player.row += 1;
+//       }
+//       break;
+//     case 'up':
+//       if (!maze.cells[player.col][player.row].northWall) {
+//         player.row -= 1;
+//       }
+//       break;
+//     default:
+//       break;
+//   }
+//   maze.redraw();
+// }
 
 function onKeyDown(event) {
   switch (event.keyCode) {
@@ -264,7 +265,15 @@ function onKeyDown(event) {
     default:
       break;
   }
+
   maze.redraw();
+    //ending pop up 
+    // how do we know where the player is at a given time?
+    if(player.col == maze.cols-1 && player.row == maze.rows-1) {
+        setTimeout(() => {  
+            alert("You made it to the end of the maze. Congrats!"); 
+        }, 500);
+    }
 }
 
 function onLoad() {
@@ -277,9 +286,5 @@ function onLoad() {
 
   document.addEventListener('keydown', onKeyDown);
   document.getElementById('generate').addEventListener('click', onClick);
-  document.getElementById('up').addEventListener('click', onControlClick);
-  document.getElementById('right').addEventListener('click', onControlClick);
-  document.getElementById('down').addEventListener('click', onControlClick);
-  document.getElementById('left').addEventListener('click', onControlClick);
-
 }
+
