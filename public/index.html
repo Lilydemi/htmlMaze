@@ -4,7 +4,7 @@
     <link rel='stylesheet' href='css/style2.css'>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <script src='js/script2.js'></script>
+    <script defer src='js/script2.js'></script>
     <title>htmlMaze</title>
      <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script defer src="/__/firebase/8.3.1/firebase-app.js"></script>
@@ -15,6 +15,13 @@
   <body onload='onLoad();'>
     <header>htmlMaze</header>
     <canvas id='mainForm'></canvas>
+    <!--NEW STUFF-->
+    <div style="display:none;">
+  <img id="imageSource"
+       src="https://i.postimg.cc/htzpST8z/Game-Image.png"
+       width="25" height="25">
+</div>
+<!--END NEW STUFF-->
     <div class='settings'>
       <label for='cols'>Columns:</label>
       <input id='cols' type='text' size='5' value='20'><br>

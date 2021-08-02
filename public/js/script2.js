@@ -4,6 +4,7 @@ let maze;
 let mazeHeight;
 let mazeWidth;
 let player;
+//let playerIcon = new Image();
 
 class Player {
 
@@ -42,7 +43,10 @@ class Maze {
     this.cols = cols;
     this.endColor = "#88FF88";
     this.mazeColor = "#000000";
-    this.playerColor = "#880088";
+    //this.playerColor="#800080";
+    this.playerIcon=image;
+    console.log(this.playerIcon);
+    //console.log(this.playerIcon.src);
     this.rows = rows;
     this.cellSize = cellSize;
 
@@ -193,8 +197,10 @@ class Maze {
       }
     }
 
-    ctx.fillStyle = this.playerColor;
-    ctx.fillRect((player.col * this.cellSize) + 2, (player.row * this.cellSize) + 2, this.cellSize - 4, this.cellSize - 4);
+    //ctx.fillStyle = this.playerColor;
+    console.log((player.col - 1) * this.cellSize, (player.row - 1) * this.cellSize);
+    ctx.drawImage(this.playerIcon, (player.col) * this.cellSize + 2, (player.row) * this.cellSize + 2, 20, 20);
+    //ctx.drawImage((player.col * this.cellSize) + 2, (player.row * this.cellSize) + 2, this.cellSize - 4, this.cellSize - 4);
 
   }
 
@@ -271,6 +277,7 @@ function onLoad() {
 
   canvas = document.getElementById('mainForm');
   ctx = canvas.getContext('2d');
+  image = document.querySelector('#imageSource');
 
   player = new Player();
   maze = new Maze(20, 20, 25);
@@ -283,3 +290,4 @@ function onLoad() {
   document.getElementById('left').addEventListener('click', onControlClick);
 
 }
+
