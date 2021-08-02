@@ -43,11 +43,13 @@ class Maze {
     this.endColor = "#88FF88";
     this.mazeColor = "#000000";
     this.playerColor = "#880088";
+    this.challengeColor = "#FF0000";
     this.rows = rows;
     this.cellSize = cellSize;
 
     this.cells = [];
-
+    this.challengeOneCol = Math.floor(Math.random() * this.cols);
+    this.challengeOneRow = Math.floor(Math.random() * this.rows);
     this.generate()
 
   }
@@ -164,6 +166,11 @@ class Maze {
     ctx.strokeStyle = this.mazeColor;
     ctx.strokeRect(0, 0, mazeHeight, mazeWidth);
 
+    ctx.fillStyle = this.challengeColor;
+    ctx.fillRect(this.challengeOneCol * this.cellSize, this.challengeOneRow * this.cellSize, this.cellSize, this.cellSize);
+    console.log(this.challengeOneCol, this.challengeOneRow)
+
+
     for (let col = 0; col < this.cols; col++) {
       for (let row = 0; row < this.rows; row++) {
         if (this.cells[col][row].eastWall) {
@@ -202,8 +209,8 @@ class Maze {
 
 function onClick(event) {
   player.reset();
-  maze.cols = document.getElementById("cols").value;
-  maze.rows = document.getElementById("rows").value;
+  maze.cols = 5;
+  maze.rows = 5;
   maze.generate();
 }
 
@@ -273,7 +280,7 @@ function onLoad() {
   ctx = canvas.getContext('2d');
 
   player = new Player();
-  maze = new Maze(20, 20, 25);
+  maze = new Maze(5, 5, 25);
 
   document.addEventListener('keydown', onKeyDown);
   document.getElementById('generate').addEventListener('click', onClick);
@@ -282,4 +289,8 @@ function onLoad() {
   document.getElementById('down').addEventListener('click', onControlClick);
   document.getElementById('left').addEventListener('click', onControlClick);
 
+}
+
+function randomChallenge()  {
+   
 }
