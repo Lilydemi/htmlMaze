@@ -88,12 +88,7 @@ class Maze {
     console.log("3: " + this.challengeThreeCol + " " + this.challengeThreeRow);
 
   }
-     tileOne = document.querySelector("#challangeOne");
-     tileTwo = document.querySelector("#challangeTwo");
-     tileThree = document.querySelector("#challangeThree");
-
-     
-  
+    
   generate() {
 
     mazeHeight = this.rows * this.cellSize;
@@ -294,6 +289,10 @@ function onClick(event) { //regenerate maze
 //   maze.redraw();
 // }
 
+     tileOne = document.querySelector("#challengeOne");
+     tileTwo = document.querySelector("#challengeTwo");
+     tileThree = document.querySelector("#challengeThree");
+
 function onKeyDown(event) {
   switch (event.keyCode) {
     case 37:
@@ -330,9 +329,15 @@ function onKeyDown(event) {
   }
 
   maze.redraw();
-  //challanges appear pt 1
-  if (player.col == this.challengeOneCol && player.row == this.challangeOneRow) {
+  //challanges appear 
+  if (player.col == this.challengeOneCol && player.row == this.challengeOneRow) {
         tileOne.classList.remove("hidden");
+  }
+   if (player.col == this.challengeTwoCol && player.row == this.challengeTwoRow) {
+        tileTwo.classList.remove("hidden");
+  }
+   if (player.col == this.challengeThreeCol && player.row == this.challengeThreeRow) {
+        tileThree.classList.remove("hidden");
   }
     //ending pop up 
     if(player.col == maze.cols-1 && player.row == maze.rows-1) {
