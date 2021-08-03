@@ -49,9 +49,9 @@ class Maze {
     this.playerIcon = image;
     console.log(this.playerIcon);
     //console.log(this.playerIcon.src);
-    this.challengeColorOne = "#FF0000";
-    this.challengeColorTwo = "#FF0000";
-    this.challengeColorThree = "#FF0000";
+    this.challengeColorOne = "#4263f5";
+    this.challengeColorTwo = "#4263f5";
+    this.challengeColorThree = "#4263f5";
     this.rows = rows;
     this.cellSize = cellSize;
 
@@ -295,6 +295,11 @@ function onKeyDown(event) {
     case 65:
       if (!maze.cells[player.col][player.row].westWall) {
         player.col -= 1;
+            // if(player.col==this.challengeOneCol && 
+            //     player.row==this.challengeOneRow ||
+            //     ){
+
+            //     }
       }
       break;
     case 39:
