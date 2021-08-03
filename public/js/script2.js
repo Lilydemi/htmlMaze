@@ -49,9 +49,9 @@ class Maze {
     this.playerIcon = image;
     console.log(this.playerIcon);
     //console.log(this.playerIcon.src);
-    this.challengeColorOne = "#FF0000";
-    this.challengeColorTwo = "#FF0000";
-    this.challengeColorThree = "#FF0000";
+    this.challengeColorOne = "#4263f5";
+    this.challengeColorTwo = "#4263f5";
+    this.challengeColorThree = "#4263f5";
     this.rows = rows;
     this.cellSize = cellSize;
 
@@ -88,7 +88,12 @@ class Maze {
     console.log("3: " + this.challengeThreeCol + " " + this.challengeThreeRow);
 
   }
+     tileOne = document.querySelector("#challangeOne");
+     tileTwo = document.querySelector("#challangeTwo");
+     tileThree = document.querySelector("#challangeThree");
 
+     
+  
   generate() {
 
     mazeHeight = this.rows * this.cellSize;
@@ -295,6 +300,11 @@ function onKeyDown(event) {
     case 65:
       if (!maze.cells[player.col][player.row].westWall) {
         player.col -= 1;
+            // if(player.col==this.challengeOneCol && 
+            //     player.row==this.challengeOneRow ||
+            //     ){
+
+            //     }
       }
       break;
     case 39:
@@ -320,13 +330,16 @@ function onKeyDown(event) {
   }
 
   maze.redraw();
+  //challanges appear pt 1
+  if (player.col == challengeOneCol && player.row == challangeOneRow) {
+        tileOne.classList.remove("hidden");
+  }
     //ending pop up 
-    // how do we know where the player is at a given time?
     if(player.col == maze.cols-1 && player.row == maze.rows-1) {
         setTimeout(() => {  
             alert("You made it to the end of the maze. Congrats!"); 
         }, 500);
-    }
+    } 
 }
 
 function onLoad() {
