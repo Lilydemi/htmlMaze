@@ -263,3 +263,10 @@ function onLoad() {
   document.getElementById("generate").addEventListener("click", onClick);
 
 }
+
+//TIMER CODE 4 LATER
+// function addTime() {
+//    time += 1;
+//    timeDiv.setInnerHtml(time);
+//    setTimeout(addTime, 1000);
+// }
