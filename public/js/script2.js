@@ -220,7 +220,7 @@ class Maze {
 
     //ctx.fillStyle = this.playerColor;
     console.log((player.col - 1) * this.cellSize, (player.row - 1) * this.cellSize);
-    ctx.drawImage(this.playerIcon, (player.col) * this.cellSize + 2, (player.row) * this.cellSize + 2, 20, 20);
+    ctx.drawImage(this.playerIcon, (player.col) * this.cellSize + 2, (player.row) * this.cellSize + 2, this.cellSize, this.cellSize);
     //ctx.drawImage((player.col * this.cellSize) + 2, (player.row * this.cellSize) + 2, this.cellSize - 4, this.cellSize - 4);
 
   }
@@ -309,7 +309,7 @@ function onLoad() {
   image = document.querySelector('#imageSource');
 
   player = new Player();
-  maze = new Maze(5, 5, 25);
+  maze = new Maze(5, 5, 50);
 
   document.addEventListener('keydown', onKeyDown);
   document.getElementById('generate').addEventListener('click', onClick);
