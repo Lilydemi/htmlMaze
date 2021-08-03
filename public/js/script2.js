@@ -41,7 +41,9 @@ class Maze {
 
     this.backgroundColor = "#ffffff";
     this.cols = cols;
-    this.endColor = "#88FF88";
+    //this.endColor = "#88FF88";
+    this.endIcon=bunkBed;
+    console.log(this.endIcon);
     this.mazeColor = "#000000";
     //this.playerColor="#800080";
     this.playerIcon = image;
@@ -60,7 +62,30 @@ class Maze {
     this.challengeTwoRow = Math.floor(Math.random() * this.rows);
     this.challengeThreeCol = Math.floor(Math.random() * this.cols);
     this.challengeThreeRow = Math.floor(Math.random() * this.rows);
+    
+    while (this.challengeOneCol == cols-1 && this.challengeOneRow==rows-1 ||
+        this.challengeOneCol == 0 && this.challengeOneRow==0 ){
+        this.challengeOneCol = Math.floor(Math.random() * this.cols);
+        this.challengeOneRow = Math.floor(Math.random() * this.rows);
+    }
+    while(this.challengeTwoCol == this.challengeOneCol && this.challengeTwoRow == this.challengeOneRow || 
+        this.challengeTwoCol == 0 && this.challengeTwoRow == 0 || 
+        this.challengeTwoCol == cols-1 && this.challengeTwoRow == rows-1){
+        this.challengeTwoCol = Math.floor(Math.random() * this.cols);
+        this.challengeTwoRow = Math.floor(Math.random() * this.rows);
+    }
+    while(this.challengeThreeCol == this.challengeOneCol && this.challengeThreeRow == this.challengeOneRow ||
+         this.challengeThreeCol == this.challengeTwoCol && this.challengeThreeRow == this.challengeTwoRow ||
+         this.challengeThreeCol == 0 && this.challengeThreeRow == 0 || 
+        this.challengeThreeCol == cols-1 && this.challengeThreeRow == rows-1){
+        this.challengeThreeCol = Math.floor(Math.random() * this.cols);
+        this.challengeThreeRow = Math.floor(Math.random() * this.rows);
+    }
+    
     this.generate()
+    console.log("1: " + this.challengeOneCol + " " + this.challengeOneRow);
+    console.log("2: " + this.challengeTwoCol + " " + this.challengeTwoRow);
+    console.log("3: " + this.challengeThreeCol + " " + this.challengeThreeRow);
 
   }
      tileOne = document.querySelector("#challangeOne");
@@ -176,8 +201,10 @@ class Maze {
     ctx.fillStyle = this.backgroundColor;
     ctx.fillRect(0, 0, mazeHeight, mazeWidth);
 
-    ctx.fillStyle = this.endColor;
-    ctx.fillRect((this.cols - 1) * this.cellSize, (this.rows - 1) * this.cellSize, this.cellSize, this.cellSize);
+    //ctx.fillStyle = this.endColor;
+    //ctx.fillRect((this.cols - 1) * this.cellSize, (this.rows - 1) * this.cellSize, this.cellSize, this.cellSize);
+    ctx.drawImage(this.endIcon, (this.cols - 1) * this.cellSize, (this.rows - 1) * this.cellSize, this.cellSize-(this.cellSize/10),this.cellSize-(this.cellSize/10));
+
 
     ctx.strokeStyle = this.mazeColor;
     ctx.strokeRect(0, 0, mazeHeight, mazeWidth);
@@ -225,7 +252,7 @@ class Maze {
 
     //ctx.fillStyle = this.playerColor;
     console.log((player.col - 1) * this.cellSize, (player.row - 1) * this.cellSize);
-    ctx.drawImage(this.playerIcon, (player.col) * this.cellSize + 2, (player.row) * this.cellSize + 2, 20, 20);
+    ctx.drawImage(this.playerIcon, (player.col) * this.cellSize + 2, (player.row) * this.cellSize + 2, this.cellSize-(this.cellSize/10), this.cellSize-(this.cellSize/10));
     //ctx.drawImage((player.col * this.cellSize) + 2, (player.row * this.cellSize) + 2, this.cellSize - 4, this.cellSize - 4);
 
   }
@@ -315,12 +342,13 @@ function onLoad() {
   canvas = document.getElementById('mainForm');
   ctx = canvas.getContext('2d');
   image = document.querySelector('#imageSource');
+  bunkBed = document.querySelector('#bunkBedImage');
 
   player = new Player();
-  maze = new Maze(10, 10, 25);
+  maze = new Maze(5, 5, 50);
 
   document.addEventListener('keydown', onKeyDown);
-  document.getElementById('generate').addEventListener('click', onClick);
+  //document.getElementById('generate').addEventListener('click', onClick);
 }
 
 function randomChallenge()  {
