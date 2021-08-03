@@ -6,6 +6,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <script src='js/script2.js'></script>
     <title>Bunk Bed Lidya</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
      <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script defer src="/__/firebase/8.3.1/firebase-app.js"></script>
   <!-- include only the Firebase features as you need -->
@@ -13,10 +14,19 @@
   <script defer src="/__/firebase/init.js?useEmulator=true"></script>
   </head>
   <body onload='onLoad();'>
-    
-    <header>Bunk Bed Lidya</header>
+    <header>Bunk Bed Lidya: Maze </header>
     <canvas id='mainForm'></canvas>
     <!--NEW STUFF-->
+ <section class="hero is-small notification is-info has-text-centered">
+    <div class="hero-body">
+      <p class="title">
+        Bunk Bed Lidya
+      </p>
+      <p class="subtitle">
+        Help Lidya reach the bunkbed of her dorm in the lowest possible time!
+      </p>
+    </div>
+  </section>
     <div style="display:none;">
   <img id="imageSource"
        src="https://i.postimg.cc/htzpST8z/Game-Image.png"
@@ -37,6 +47,26 @@
     <section id="stopWatch">
         <p id="timer"> 00:00:00 </p>
     </section>
+
+    <!--challange tiles!-->
+    <div class="tile is-parent is-4">
+          <div class="tile is-child notification is-info" id="challangeOne">
+            <p class="title">CHALLANGE ONE</p>
+            <p class="subtitle">Solve this challange!</p>
+          </div>
+    </div> 
+     <div class="tile is-parent is-4">
+          <div class="tile is-child notification is-info" id="challangeTwo">
+            <p class="title">CHALLANGE Two</p>
+            <p class="subtitle">Solve another challange!</p>
+          </div>
+    </div> 
+     <div class="tile is-parent is-4">
+          <div class="tile is-child notification is-info" id="challangeThree">
+            <p class="title">CHALLANGE Two</p>
+            <p class="subtitle">Solve this last challange!</p>
+          </div>
+    </div> 
     <footer>&copy; 2017 <a href='mailto:JakesAddress@gmail.com?Subject=htmlMaze'>Jake (John) Moe</a></footer>
   </body>
 </html>
