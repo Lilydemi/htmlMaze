@@ -63,7 +63,12 @@ class Maze {
     this.generate()
 
   }
+     tileOne = document.querySelector("#challangeOne");
+     tileTwo = document.querySelector("#challangeTwo");
+     tileThree = document.querySelector("#challangeThree");
 
+     
+  
   generate() {
 
     mazeHeight = this.rows * this.cellSize;
@@ -293,13 +298,16 @@ function onKeyDown(event) {
   }
 
   maze.redraw();
+  //challanges appear pt 1
+  if (player.col == challengeOneCol && player.row == challangeOneRow) {
+        tileOne.classList.remove("hidden");
+  }
     //ending pop up 
-    // how do we know where the player is at a given time?
     if(player.col == maze.cols-1 && player.row == maze.rows-1) {
         setTimeout(() => {  
             alert("You made it to the end of the maze. Congrats!"); 
         }, 500);
-    }
+    } 
 }
 
 function onLoad() {
@@ -309,7 +317,7 @@ function onLoad() {
   image = document.querySelector('#imageSource');
 
   player = new Player();
-  maze = new Maze(5, 5, 25);
+  maze = new Maze(10, 10, 25);
 
   document.addEventListener('keydown', onKeyDown);
   document.getElementById('generate').addEventListener('click', onClick);
