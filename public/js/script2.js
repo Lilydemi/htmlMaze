@@ -41,7 +41,9 @@ class Maze {
 
     this.backgroundColor = "#ffffff";
     this.cols = cols;
-    this.endColor = "#88FF88";
+    //this.endColor = "#88FF88";
+    this.endIcon=bunkBed;
+    console.log(this.endIcon);
     this.mazeColor = "#000000";
     //this.playerColor="#800080";
     this.playerIcon=image;
@@ -165,8 +167,10 @@ class Maze {
     ctx.fillStyle = this.backgroundColor;
     ctx.fillRect(0, 0, mazeHeight, mazeWidth);
 
-    ctx.fillStyle = this.endColor;
-    ctx.fillRect((this.cols - 1) * this.cellSize, (this.rows - 1) * this.cellSize, this.cellSize, this.cellSize);
+    //ctx.fillStyle = this.endColor;
+    //ctx.fillRect((this.cols - 1) * this.cellSize, (this.rows - 1) * this.cellSize, this.cellSize, this.cellSize);
+    ctx.drawImage(this.endIcon, (this.cols - 1) * this.cellSize, (this.rows - 1) * this.cellSize, this.cellSize-(this.cellSize/10),this.cellSize-(this.cellSize/10));
+
 
     ctx.strokeStyle = this.mazeColor;
     ctx.strokeRect(0, 0, mazeHeight, mazeWidth);
@@ -207,7 +211,7 @@ class Maze {
 
     //ctx.fillStyle = this.playerColor;
     console.log((player.col - 1) * this.cellSize, (player.row - 1) * this.cellSize);
-    ctx.drawImage(this.playerIcon, (player.col) * this.cellSize + 2, (player.row) * this.cellSize + 2, 20, 20);
+    ctx.drawImage(this.playerIcon, (player.col) * this.cellSize + 2, (player.row) * this.cellSize + 2, this.cellSize-(this.cellSize/10), this.cellSize-(this.cellSize/10));
     //ctx.drawImage((player.col * this.cellSize) + 2, (player.row * this.cellSize) + 2, this.cellSize - 4, this.cellSize - 4);
 
   }
@@ -294,12 +298,13 @@ function onLoad() {
   canvas = document.getElementById('mainForm');
   ctx = canvas.getContext('2d');
   image = document.querySelector('#imageSource');
+  bunkBed = document.querySelector('#bunkBedImage');
 
   player = new Player();
-  maze = new Maze(5, 5, 25);
+  maze = new Maze(5, 5, 100);
 
   document.addEventListener('keydown', onKeyDown);
-  document.getElementById('generate').addEventListener('click', onClick);
+  //document.getElementById('generate').addEventListener('click', onClick);
 }
 
 function randomChallenge()  {
