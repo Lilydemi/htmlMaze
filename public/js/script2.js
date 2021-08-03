@@ -46,16 +46,22 @@ class Maze {
     console.log(this.endIcon);
     this.mazeColor = "#000000";
     //this.playerColor="#800080";
-    this.playerIcon=image;
+    this.playerIcon = image;
     console.log(this.playerIcon);
     //console.log(this.playerIcon.src);
-    this.challengeColor = "#FF0000";
+    this.challengeColorOne = "#FF0000";
+    this.challengeColorTwo = "#FF0000";
+    this.challengeColorThree = "#FF0000";
     this.rows = rows;
     this.cellSize = cellSize;
 
     this.cells = [];
     this.challengeOneCol = Math.floor(Math.random() * this.cols);
     this.challengeOneRow = Math.floor(Math.random() * this.rows);
+    this.challengeTwoCol = Math.floor(Math.random() * this.cols);
+    this.challengeTwoRow = Math.floor(Math.random() * this.rows);
+    this.challengeThreeCol = Math.floor(Math.random() * this.cols);
+    this.challengeThreeRow = Math.floor(Math.random() * this.rows);
     this.generate()
 
   }
@@ -175,9 +181,16 @@ class Maze {
     ctx.strokeStyle = this.mazeColor;
     ctx.strokeRect(0, 0, mazeHeight, mazeWidth);
 
-    ctx.fillStyle = this.challengeColor;
+    ctx.fillStyle = this.challengeColorOne;
     ctx.fillRect(this.challengeOneCol * this.cellSize, this.challengeOneRow * this.cellSize, this.cellSize, this.cellSize);
     console.log(this.challengeOneCol, this.challengeOneRow)
+
+    ctx.fillStyle = this.challengeColorTwo;
+    ctx.fillRect(this.challengeTwoCol * this.cellSize, this.challengeTwoRow * this.cellSize, this.cellSize, this.cellSize);
+
+    ctx.fillStyle = this.challengeColorThree;
+    ctx.fillRect(this.challengeThreeCol * this.cellSize, this.challengeThreeRow * this.cellSize, this.cellSize, this.cellSize);
+
 
 
     for (let col = 0; col < this.cols; col++) {
@@ -301,7 +314,7 @@ function onLoad() {
   bunkBed = document.querySelector('#bunkBedImage');
 
   player = new Player();
-  maze = new Maze(5, 5, 100);
+  maze = new Maze(5, 5, 50);
 
   document.addEventListener('keydown', onKeyDown);
   //document.getElementById('generate').addEventListener('click', onClick);
