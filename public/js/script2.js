@@ -335,6 +335,7 @@ function onLoad() {
   ctx = canvas.getContext('2d');
   image = document.querySelector('#imageSource');
   bunkBed = document.querySelector('#bunkBedImage');
+  progressBar = document.querySelector('#progressBar');  
 
   player = new Player();
   maze = new Maze(5, 5, 50);
@@ -344,6 +345,11 @@ function onLoad() {
 }
 
 function randomChallenge()  {
-   
+   //after button is clicked to submit value
+   //progressBar.innerHTML = makeProgress(challengeCount);
+}
+
+const makeProgress = (challengeCount) => {
+    return `<progress class = "progress is-success" value = ${challengeCount * 25} max = "100">${challengeCount * 25}%</progress>`
 }
 
