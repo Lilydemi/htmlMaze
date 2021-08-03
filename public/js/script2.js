@@ -13,8 +13,8 @@ class Player {
   }
 
   reset() {
-    this.col = 19;
-    this.row = 18;
+    this.col = 0;
+    this.row = 0;
   }
 
 }
