@@ -60,7 +60,30 @@ class Maze {
     this.challengeTwoRow = Math.floor(Math.random() * this.rows);
     this.challengeThreeCol = Math.floor(Math.random() * this.cols);
     this.challengeThreeRow = Math.floor(Math.random() * this.rows);
+    
+    while (this.challengeOneCol == cols-1 && this.challengeOneRow==rows-1 ||
+        this.challengeOneCol == 0 && this.challengeOneRow==0 ){
+        this.challengeOneCol = Math.floor(Math.random() * this.cols);
+        this.challengeOneRow = Math.floor(Math.random() * this.rows);
+    }
+    while(this.challengeTwoCol == this.challengeOneCol && this.challengeTwoRow == this.challengeOneRow || 
+        this.challengeTwoCol == 0 && this.challengeTwoRow == 0 || 
+        this.challengeTwoCol == cols-1 && this.challengeTwoRow == rows-1){
+        this.challengeTwoCol = Math.floor(Math.random() * this.cols);
+        this.challengeTwoRow = Math.floor(Math.random() * this.rows);
+    }
+    while(this.challengeThreeCol == this.challengeOneCol && this.challengeThreeRow == this.challengeOneRow ||
+         this.challengeThreeCol == this.challengeTwoCol && this.challengeThreeRow == this.challengeTwoRow ||
+         this.challengeThreeCol == 0 && this.challengeThreeRow == 0 || 
+        this.challengeThreeCol == cols-1 && this.challengeThreeRow == rows-1){
+        this.challengeThreeCol = Math.floor(Math.random() * this.cols);
+        this.challengeThreeRow = Math.floor(Math.random() * this.rows);
+    }
+    
     this.generate()
+    console.log("1: " + this.challengeOneCol + " " + this.challengeOneRow);
+    console.log("2: " + this.challengeTwoCol + " " + this.challengeTwoRow);
+    console.log("3: " + this.challengeThreeCol + " " + this.challengeThreeRow);
 
   }
 
