@@ -6,6 +6,7 @@ let mazeWidth;
 let player;
 //let playerIcon = new Image();
 
+
 class Player {
 
   constructor() {
@@ -288,7 +289,29 @@ function onClick(event) { //regenerate maze
 //   }
 //   maze.redraw();
 // }
+    let minutes = 0;
+    let seconds = 0;
+    let timer = document.querySelector("#timer");
+    let time = minutes + ":" + seconds;
+    timer.innerHTML = time;
 
+function startTimer(){
+
+    if (seconds === 0 && minutes === 0){
+    addTime()   
+    function addTime() {
+        seconds += 1;
+        let time = minutes + ":" + seconds;
+        timer.innerHTML = time;
+        setTimeout(addTime, 1000);
+            if (seconds === 60){
+                seconds = 0;
+                minutes += 1;
+            }
+
+        }
+    }
+}
      tileOne = document.querySelector("#challengeOne");
      tileTwo = document.querySelector("#challengeTwo");
      tileThree = document.querySelector("#challengeThree");
@@ -329,6 +352,7 @@ function onKeyDown(event) {
   }
 
   maze.redraw();
+  startTimer();
   //challanges appear 
   if (player.col == this.challengeOneCol && player.row == this.challengeOneRow) {
         tileOne.classList.remove("hidden");
@@ -370,4 +394,8 @@ function randomChallenge()  {
 const makeProgress = (challengeCount) => {
     return `<progress class = "progress is-success is-large" value = ${challengeCount * 25} max = "100">${challengeCount * 25}%</progress>`
 }
+
+
+
+
 
