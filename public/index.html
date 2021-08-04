@@ -14,19 +14,35 @@
   </head>
   <body onload='onLoad();'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    <header>Bunk Bed Lidya: Maze </header>
-    <canvas id='mainForm'></canvas>
-    <!--NEW STUFF-->
- <section class="hero is-small notification is-info has-text-centered">
-    <div class="hero-body">
-      <p class="title">
-        Bunk Bed Lidya
-      </p>
-      <p class="subtitle">
-        Help Lidya reach the bunkbed of her dorm in the lowest possible time!
-      </p>
-    </div>
+    <!-- <header>Bunk Bed Lidya: Maze </header> -->
+    <div class="columns">
+        <div class = "column">
+            <section class="hero is-small notification is-info has-text-centered">
+                <div class="hero-body">
+                    <p class="title">
+                        Bunk Bed Lidya
+                    </p>
+                <p class="subtitle">
+                    Help Lidya reach the bunkbed of her dorm in the lowest possible time!
+                </p>
+            </div>
   </section>
+            <div class = "column">
+                <canvas id='mainForm'></canvas>
+                <div class = "columns">
+                    <div class = "column">
+                            <section id="stopWatch">
+                                <p id="timer"> 00:00:00 </p>
+                            </section>
+                        </div>    
+                    <div class = "column">
+                            <progress id="progressBar" class="progress is-primary is-large" value="0" max="100">10%</progress>                 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--NEW STUFF-->
     <div style="display:none;">
   <img id="imageSource"
        src="https://i.postimg.cc/htzpST8z/Game-Image.png"
@@ -34,9 +50,6 @@
     <img id="bunkBedImage";
         src="https://static.vecteezy.com/system/resources/previews/002/215/908/original/bunk-bed-cartoon-illustration-hostel-college-dormitory-interior-element-bedroom-furniture-flat-color-object-isolated-on-white-background-student-lifestyle-attribute-concept-vector.jpg";
         width="25" height="25";>
-</div>
-<div>
-    <progress id="progressBar" class="progress is-primary is-large" value="0" max="100">10%</progress>
 </div>
 
 <!--END NEW STUFF-->
@@ -47,13 +60,10 @@
       <input id='rows' type='text' size='5' value='20'><br>
       <input id='generate' type='button' value='Generate'>
     </div> -->
-    <section id="stopWatch">
-        <p id="timer"> 00:00:00 </p>
-    </section>
 
     <!--challenge tiles!-->
 
-    <div class="columns is-centered is-variable is-5">
+    <!-- <div class="columns is-centered is-variable is-5">
 
         <div class="column is-one-third mt-4">
             <div class="tile is-parent is-4">
@@ -67,7 +77,6 @@
     
       <div class="column is-one-fifth">
         <div class="card">
-          </div>
           <div class="card-content">
             <div class="content">
               <div class="hidden tile is-child notification is-info" id="challengeOne">
@@ -77,6 +86,7 @@
               </div>
           </div>
       </div>
+    </div>
 
       <div class="column is-one-fifth">
         <div class="card">
@@ -103,7 +113,7 @@
                   </div>
               </div>
           </div>
-      </div>
+      </div> -->
       
     <!-- <div class="columns is-centered is-variable is-5">
      <div class="column is-one-third mt-4">
