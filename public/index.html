@@ -16,28 +16,69 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <!-- <header>Bunk Bed Lidya: Maze </header> -->
     <div class="columns">
-        <div class = "column">
-            <section class="hero is-small notification is-info has-text-centered">
+        <div class = "column is-full">
+            <section class="hero notification is-info has-text-centered">
                 <div class="hero-body">
                     <p class="title">
                         Bunk Bed Lidya
                     </p>
-                <p class="subtitle">
-                    Help Lidya reach the bunkbed of her dorm in the lowest possible time!
-                </p>
-            </div>
-  </section>
+                    <p class="subtitle">
+                        Help Lidya reach the bunkbed of her dorm in the lowest possible time!
+                    </p>
+                </div>
+            </section>
             <div class = "column">
                 <canvas id='mainForm'></canvas>
                 <div class = "columns">
                     <div class = "column">
                             <section id="stopWatch">
-                                <p id="timer"> 00:00:00 </p>
+                                <p id="timer">0:0</p>
+                                <p id="stopTime"></p>
                             </section>
                         </div>    
                     <div class = "column">
                             <progress id="progressBar" class="progress is-primary is-large" value="0" max="100">10%</progress>                 
                     </div>
+                </div>
+                <div class = "column is-full">
+                    <div class="columns is-full">
+                        <div class="card">
+                        </div>
+                        <div class="card-content">
+                            <div class="content">
+                            <div class="hidden tile is-child notification is-info" id="challengeOne">
+                            <p class="title">CHALLENGE ONE</p>
+                            <p class="subtitle">Solve this challenge!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+
+                    <div class="columns is-full">
+                        <div class="card">
+                        </div>
+                        <div class="card-content">
+                            <div class="content">
+                            <div class="hidden tile is-child notification is-info" id="challengeTwo">
+                            <p class="title">CHALLENGE TWO</p>
+                            <p class="subtitle">Solve this challenge!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    
+                    <div class="columns is-full">
+                        <div class="card">
+                        </div>
+                        <div class="card-content">
+                            <div class="content">
+                            <div class="hidden tile is-child notification is-info" id="challengeThree">
+                            <p class="title">CHALLENGE THREE</p>
+                            <p class="subtitle">Solve this challenge!</p>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
                 </div>
             </div>
         </div>
@@ -61,10 +102,10 @@
       <input id='rows' type='text' size='5' value='20'><br>
       <input id='generate' type='button' value='Generate'>
     </div> -->
-    <section id="stopWatch">
+    <!-- <section id="stopWatch">
         <p id="timer">0:0</p>
         <p id="stopTime"></p>
-    </section>
+    </section> -->
 
     <!-- challenge tiles!
 
@@ -177,7 +218,8 @@
     </div>
 <<<<<<< HEAD
     -->
-    </div> 
+
+    <!-- </div>   -->
     
     <footer>&copy; 2017 <a href='mailto:JakesAddress@gmail.com?Subject=htmlMaze'>Jake (John) Moe</a></footer>
   </body>
