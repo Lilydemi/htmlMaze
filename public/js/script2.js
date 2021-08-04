@@ -4,7 +4,14 @@ let maze;
 let mazeHeight;
 let mazeWidth;
 let player;
+
+var count = 0;
+let oneCh = false;
+let twoCh = false;
+let thrCh = false;
+
 //let playerIcon = new Image();
+
 
 class Player {
 
@@ -83,9 +90,9 @@ class Maze {
     }
     
     this.generate()
-    console.log("1: " + this.challengeOneCol + " " + this.challengeOneRow);
-    console.log("2: " + this.challengeTwoCol + " " + this.challengeTwoRow);
-    console.log("3: " + this.challengeThreeCol + " " + this.challengeThreeRow);
+    console.log("1: " + this.challengeOneRow + " " + this.challengeOneCol);
+    console.log("2: " + this.challengeTwoRow + " " + this.challengeTwoCol);
+    console.log("3: " + this.challengeThreeRow + " " + this.challengeThreeCol);
 
   }
     
@@ -177,7 +184,7 @@ class Maze {
       for (let row = 0; row < this.rows; row++) {
         if (!this.cells[col][row].visited) {
           return true;
-          console.log(c);
+         // console.log(c);
         }
       }
     }
@@ -214,8 +221,6 @@ class Maze {
     ctx.fillStyle = this.challengeColorThree;
     ctx.fillRect(this.challengeThreeCol * this.cellSize, this.challengeThreeRow * this.cellSize, this.cellSize, this.cellSize);
 
-
-
     for (let col = 0; col < this.cols; col++) {
       for (let row = 0; row < this.rows; row++) {
         if (this.cells[col][row].eastWall) {
@@ -242,6 +247,29 @@ class Maze {
           ctx.lineTo(col * this.cellSize, (row + 1) * this.cellSize);
           ctx.stroke();
         }
+
+        console.log ("row: " + player.row + " col: " + player.col);
+
+        if(player.col==this.challengeOneCol && 
+                player.row==this.challengeOneRow && oneCh == false){
+                    oneCh = true;
+                    console.log("oneCh: " + oneCh);
+                    this.challengeColorOne = "#FFFFFF";
+            }
+            else if(player.col==this.challengeTwoCol && 
+                player.row==this.challengeTwoRow && twoCh == false){
+                    twoCh = true;
+                    console.log("TwoCh: " + twoCh);
+                    this.challengeColorTwo = "#FFFFFF";
+   
+                }
+            else if (player.col==this.challengeThreeCol && 
+                player.row==this.challengeThreeRow && thrCh == false) {
+                    thrCh = true;
+                    console.log("threeCh: " + thrCh);
+                    this.challengeColorThree = "#FFFFFF";
+            }
+
       }
     }
 
@@ -249,7 +277,6 @@ class Maze {
     console.log((player.col - 1) * this.cellSize, (player.row - 1) * this.cellSize);
     ctx.drawImage(this.playerIcon, (player.col) * this.cellSize + 2, (player.row) * this.cellSize + 2, this.cellSize-(this.cellSize/10), this.cellSize-(this.cellSize/10));
     //ctx.drawImage((player.col * this.cellSize) + 2, (player.row * this.cellSize) + 2, this.cellSize - 4, this.cellSize - 4);
-
   }
 
 }
@@ -288,7 +315,29 @@ function onClick(event) { //regenerate maze
 //   }
 //   maze.redraw();
 // }
+    let minutes = 0;
+    let seconds = 0;
+    let timer = document.querySelector("#timer");
+    let time = minutes + ":" + seconds;
+    timer.innerHTML = time;
 
+function startTimer(){
+
+    if (seconds === 0 && minutes === 0){
+    addTime()   
+    function addTime() {
+        seconds += 1;
+        let time = minutes + ":" + seconds;
+        timer.innerHTML = time;
+        setTimeout(addTime, 1000);
+            if (seconds === 60){
+                seconds = 0;
+                minutes += 1;
+            }
+
+        }
+    }
+}
      tileOne = document.querySelector("#challengeOne");
      tileTwo = document.querySelector("#challengeTwo");
      tileThree = document.querySelector("#challengeThree");
@@ -299,11 +348,6 @@ function onKeyDown(event) {
     case 65:
       if (!maze.cells[player.col][player.row].westWall) {
         player.col -= 1;
-            // if(player.col==this.challengeOneCol && 
-            //     player.row==this.challengeOneRow ||
-            //     ){
-
-            //     }
       }
       break;
     case 39:
@@ -329,6 +373,7 @@ function onKeyDown(event) {
   }
 
   maze.redraw();
+  startTimer();
   //challanges appear 
   if (player.col == maze.challengeOneCol && player.row == maze.challengeOneRow) {
         tileOne.classList.remove("hidden");
@@ -340,7 +385,8 @@ function onKeyDown(event) {
         tileThree.classList.remove("hidden");
   }
     //ending pop up 
-    if(player.col == maze.cols-1 && player.row == maze.rows-1) {
+    if(player.col == maze.cols-1 && player.row == maze.rows-1
+        && oneCh && twoCh && thrCh) {
         setTimeout(() => {  
             alert("You made it to the end of the maze. Congrats!"); 
         }, 500);
@@ -370,4 +416,4 @@ function randomChallenge()  {
 const makeProgress = (challengeCount) => {
     return `<progress class = "progress is-success is-large" value = ${challengeCount * 25} max = "100">${challengeCount * 25}%</progress>`
 }
-
+   
