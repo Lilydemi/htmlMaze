@@ -330,7 +330,7 @@ function onKeyDown(event) {
 
   maze.redraw();
   //challanges appear 
-  if (player.col == this.challengeOneCol && player.row == this.challengeOneRow) {
+  if (player.col == maze.challengeOneCol && player.row == maze.challengeOneRow) {
         tileOne.classList.remove("hidden");
   }
    if (player.col == this.challengeTwoCol && player.row == this.challengeTwoRow) {
