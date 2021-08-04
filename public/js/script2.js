@@ -363,11 +363,11 @@ function onLoad() {
 }
 
 function randomChallenge()  {
-   //after button is clicked to submit value
+   //after button is clicked to submit value or final square is reached
    //progressBar.innerHTML = makeProgress(challengeCount);
 }
 
 const makeProgress = (challengeCount) => {
-    return `<progress class = "progress is-success" value = ${challengeCount * 25} max = "100">${challengeCount * 25}%</progress>`
+    return `<progress class = "progress is-success is-large" value = ${challengeCount * 25} max = "100">${challengeCount * 25}%</progress>`
 }
 
