@@ -320,24 +320,34 @@ function onClick(event) { //regenerate maze
     let timer = document.querySelector("#timer");
     let time = minutes + ":" + seconds;
     timer.innerHTML = time;
+    let timeCount
 
-function startTimer(){
-
-    if (seconds === 0 && minutes === 0){
-    addTime()   
     function addTime() {
         seconds += 1;
         let time = minutes + ":" + seconds;
         timer.innerHTML = time;
-        setTimeout(addTime, 1000);
+         timeCount = setTimeout(addTime, 1000);
             if (seconds === 60){
                 seconds = 0;
                 minutes += 1;
             }
 
         }
+    
+function startTimer(){
+    if (seconds === 0 && minutes === 0){
+    addTime()   
     }
 }
+function stopTimer(){
+    if (seconds !== 0  || minutes !== 0){
+        let time = minutes + ":" + seconds;  
+        clearTimeout(timeCount);     
+    }
+    
+
+}
+
      tileOne = document.querySelector("#challengeOne");
      tileTwo = document.querySelector("#challengeTwo");
      tileThree = document.querySelector("#challengeThree");
@@ -388,8 +398,9 @@ function onKeyDown(event) {
     if(player.col == maze.cols-1 && player.row == maze.rows-1
         && oneCh && twoCh && thrCh) {
         setTimeout(() => {  
-            alert("You made it to the end of the maze. Congrats!"); 
+            alert("You made it to the end of the maze. Congrats! Your time was " + minutes +" minutes and " + seconds + " seconds"); 
         }, 500);
+       stopTimer();
     } 
 }
 
