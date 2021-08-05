@@ -15,7 +15,7 @@
   <body onload='onLoad();'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <!-- <header>Bunk Bed Lidya: Maze </header> -->
-    <div class="columns">
+    <div class="columns is-full">
         <div class = "column is-full">
             <section class="hero notification is-info has-text-centered">
                 <div class="hero-body">
@@ -27,16 +27,22 @@
                     </p>
                 </div>
             </section>
-            <div class = "column">
-                <canvas id='mainForm'></canvas>
+            <div class = "column is-full">
                 <div class = "columns">
-                    <div class = "column">
+                    <div class="column is-one-fifth"></div>
+                    <div class = "column is-one-third">
+                        <canvas id='mainForm'></canvas>
+                    </div>
+                    <div class="column is-one-fifth"></div>
+                </div>
+                <div class = "columns">
+                    <div class = "column is-two-fifths is-offset-1">
                             <section id="stopWatch">
-                                <p id="timer">0:0</p>
+                                <p class = "title" id="timer">0:0</p>
                                 <p id="stopTime"></p>
                             </section>
                         </div>    
-                    <div class = "column">
+                    <div class = "column mr-4">
                             <progress id="progressBar" class="progress is-primary is-large" value="0" max="100">10%</progress>                 
                     </div>
                 </div>
