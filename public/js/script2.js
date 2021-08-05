@@ -451,22 +451,31 @@ const challengeThreeAns = document.querySelector("#challengeThreeAns");
 const challengeThreeEnter = document.querySelector("#challengeThreeEnter");
 
 challengeOneEnter.addEventListener('click',(e)=>{
-    if(challengeOneAns.value.toLowerCase == 'b' ){
-        challengeCount++;
-        makeProgress(challengeCount);
+    challengeCount++;
+    makeProgress(challengeCount);    
+    if(!(challengeOneAns.value.toLowerCase == 'b' )){
+        for(let i=0;i<15;i++){
+            addTime();
+        }
     }
 })
 
 challengeTwoEnter.addEventListener('click',(e)=>{
-    if(challengeTwoAns.value.toLowerCase == 'b' ){
-        challengeCount++;
-        makeProgress(challengeCount);
+    challengeCount++;
+    makeProgress(challengeCount);
+    if(!(challengeOneAns.value.toLowerCase == 'b' )){
+        for(let i=0;i<15;i++){
+            addTime();
+        }
     }
 })
 
 challengeThreeEnter.addEventListener('click',(e)=>{
-    if(challengeThreeAns.value.toLowerCase == 'b' ){
-        challengeCount++;
-        makeProgress(challengeCount);
+    challengeCount++;
+    makeProgress(challengeCount);
+    if(!(challengeOneAns.value.toLowerCase == 'b' )){
+        for(let i=0;i<15;i++){
+            addTime();
+        }
     }
 })
