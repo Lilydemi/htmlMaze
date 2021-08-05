@@ -252,31 +252,31 @@ class Maze {
 
         console.log ("row: " + player.row + " col: " + player.col);
 
-        if(player.col==this.challengeOneCol && 
-                player.row==this.challengeOneRow && oneCh == false){
-                    oneCh = true;
-                    console.log("oneCh: " + oneCh);
-                    this.challengeColorOne = "#FFFFFF";
-                    challengeCount++;
-                    //myFunction1();
-            }
-            else if(player.col==this.challengeTwoCol && 
-                player.row==this.challengeTwoRow && twoCh == false){
-                    twoCh = true;
-                    console.log("TwoCh: " + twoCh);
-                    this.challengeColorTwo = "#FFFFFF";
-                    challengeCount++;
-                    //myFunction2();
+        // if(player.col==this.challengeOneCol && 
+        //         player.row==this.challengeOneRow && oneCh == false && completeChalOne){
+        //             oneCh = true;
+        //             console.log("oneCh: " + oneCh);
+        //             this.challengeColorOne = "#FFFFFF";
+        //             challengeCount++;
+        //             //myFunction1();
+        //     }
+        //     else if(player.col==this.challengeTwoCol && 
+        //         player.row==this.challengeTwoRow && twoCh == false && completeChalTwo){
+        //             twoCh = true;
+        //             console.log("TwoCh: " + twoCh);
+        //             this.challengeColorTwo = "#FFFFFF";
+        //             challengeCount++;
+        //             //myFunction2();
    
-                }
-            else if (player.col==this.challengeThreeCol && 
-                player.row==this.challengeThreeRow && thrCh == false) {
-                    thrCh = true;
-                    console.log("threeCh: " + thrCh);
-                    this.challengeColorThree = "#FFFFFF";
-                    challengeCount++;
-                    //myFunction3();
-            }
+        //         }
+        //     else if (player.col==this.challengeThreeCol && 
+        //         player.row==this.challengeThreeRow && thrCh == false && completeChalThree) {
+        //             thrCh = true;
+        //             console.log("threeCh: " + thrCh);
+        //             this.challengeColorThree = "#FFFFFF";
+        //             challengeCount++;
+        //             //myFunction3();
+        //     }
 
       }
     }
@@ -402,7 +402,9 @@ function onKeyDown(event) {
   }
     //ending pop up 
     if(player.col == maze.cols-1 && player.row == maze.rows-1
-        && oneCh && twoCh && thrCh) {
+        && completeChalOne && completeChalTwo && completeChalThree) {
+            challengeCount++;
+            makeProgress(challengeCount);
         setTimeout(() => {  
             alert("You made it to the end of the maze. Congrats! Your time was " + minutes +" minutes and " + seconds + " seconds"); 
         }, 500);
@@ -458,7 +460,7 @@ function randomChallenge()  {
 }
 
 const makeProgress = (challengeCount) => {
-    progressBar.value = challengeCount * 20;
+    progressBar.value = challengeCount * 25;
     //progressBar.innerHTML = `<progress id="progressBar" class = "progress is-success is-large" value = ${challengeCount * 25} max = "100">${challengeCount * 25}%</progress>`
 }
 
@@ -469,36 +471,48 @@ const challengeTwoAns = document.querySelector("#challengeTwoAns");
 const challengeTwoEnter = document.querySelector("#challengeTwoEnter");
 const challengeThreeAns = document.querySelector("#challengeThreeAns");
 const challengeThreeEnter = document.querySelector("#challengeThreeEnter");
+let completeChalOne = false;
+let completeChalTwo = false;
+let completeChalThree = false;
 
 challengeOneEnter.addEventListener('click',(e)=>{
     challengeCount++;
     makeProgress(challengeCount);    
-    if(!(challengeOneAns.value.toLowerCase == 'c' )){
+    if(!(challengeOneAns.value.toLowerCase() == 'c' )){
         for(let i=0;i<2;i++){
             addTime();
         }
     }
+    completeChalOne = true;
+    maze.challengeColorOne = "#FFFFFF";
     challengeOneAns.innerHTML = "";
+    challengeOne.classList.add("hidden");
 })
 
 challengeTwoEnter.addEventListener('click',(e)=>{
     challengeCount++;
     makeProgress(challengeCount);
-    if(!(challengeTwoAns.value.toLowerCase == 'b' )){
+    if(!(challengeTwoAns.value.toLowerCase() == 'b' )){
         for(let i=0;i<2;i++){
             addTime();
         }
     }
+    completeChalTwo = true;
+    maze.challengeColorTwo = "#FFFFFF";
     challengeTwoAns.innerHTML = "";
+    challengeTwo.classList.add("hidden");
 })
 
 challengeThreeEnter.addEventListener('click',(e)=>{
     challengeCount++;
     makeProgress(challengeCount);
-    if(!(challengeThreeAns.value.toLowerCase == 'b' )){
+    if(!(challengeThreeAns.value.toLowerCase() == 'b' )){
         for(let i=0;i<2;i++){
             addTime();
         }
     }
+    completeChalThree = true;
+    maze.challengeColorThree = "#FFFFFF";
     challengeThreeAns.innerHTML = "";
+    challengeThree.classList.add("hidden");
 })
