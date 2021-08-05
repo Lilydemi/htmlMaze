@@ -10,6 +10,7 @@ let oneCh = false;
 let twoCh = false;
 let thrCh = false;
 
+
 //let playerIcon = new Image();
 
 
@@ -345,10 +346,8 @@ function startTimer(){
 function stopTimer(){
     if (seconds !== 0  || minutes !== 0){
         let time = minutes + ":" + seconds;  
-        clearTimeout(timeCount);     
+        clearTimeout(timeCount);   
     }
-    
-
 }
 
      tileOne = document.querySelector("#challengeOne");
@@ -391,10 +390,10 @@ function onKeyDown(event) {
   if (player.col == maze.challengeOneCol && player.row == maze.challengeOneRow) {
         tileOne.classList.remove("hidden");
   }
-   if (player.col == this.challengeTwoCol && player.row == this.challengeTwoRow) {
+   if (player.col == maze.challengeTwoCol && player.row == maze.challengeTwoRow) {
         tileTwo.classList.remove("hidden");
   }
-   if (player.col == this.challengeThreeCol && player.row == this.challengeThreeRow) {
+   if (player.col == maze.challengeThreeCol && player.row == maze.challengeThreeRow) {
         tileThree.classList.remove("hidden");
   }
     //ending pop up 
@@ -404,8 +403,20 @@ function onKeyDown(event) {
             alert("You made it to the end of the maze. Congrats! Your time was " + minutes +" minutes and " + seconds + " seconds"); 
         }, 500);
        stopTimer();
+       document.getElementById("saveBtn").style.display = "initial";
+        
     } 
 }
+function saveScore() {
+        let text;
+        let person = prompt("Please enter your name:", "Name");
+            if (person == null || person == "") {
+                text = "User cancelled the prompt.";
+            } else {
+                text =  person + " - " + minutes + ":" + seconds;
+            }
+        document.getElementById("score").innerHTML = text;
+        }
 
 function onLoad() {
 
@@ -421,6 +432,7 @@ function onLoad() {
   document.addEventListener('keydown', onKeyDown);
   //document.getElementById('generate').addEventListener('click', onClick);
 }
+
 
 function randomChallenge()  {
    //after button is clicked to submit value or final square is reached

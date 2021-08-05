@@ -41,6 +41,8 @@
                                 <p class = "title" id="timer">0:0</p>
                                 <p id="stopTime"></p>
                             </section>
+                            <button class = "hide" id = "saveBtn" onclick="saveScore()">Save your score!</button>
+                            <p id="score"></p>
                         </div>    
                     <div class = "column mr-4">
                             <progress id="progressBar" class="progress is-primary is-large" value="0" max="100">10%</progress>                 
@@ -54,7 +56,13 @@
                             <div class="content">
                             <div class="hidden tile is-child notification is-info" id="challengeOne">
                             <p class="title">CHALLENGE ONE</p>
-                            <p class="subtitle">Solve this challenge!</p>
+                            <p class="subtitle">Solve this challenge!:</p>
+                            <p class = "subtitle">  
+                                A rooster cock-a-doodle-doos at 1 am, 3 am, and 5 am. If huarui forgets to feed the chickens at night, the rooster cock-a-doodle-doo counter goes up one, if she forgets to give them water, the cock-a-doodle-doo counter goes up an extra two, and if huarui’s extra tired, cock-a-doodle-doo counter goes down by one. If huarui forgets to give the rooster water and is extra tired, sleeping from 9:30 pm until 4:58 am to make it to Google CSSI, how many times did she hear the rooster cock-a-doodle-doo in the period she was asleep? 
+                            </p>
+                            <p>(A) 12      (B) 10      (C) 4      (D) 2 </p> <!--C-->
+                            <input type="text" id="challengeOneAns">
+                            <button type="button" id="challengeOneEnter">Submit your answer!</button>
                                 </div>
                             </div>
                         </div>
@@ -68,6 +76,12 @@
                             <div class="hidden tile is-child notification is-info" id="challengeTwo">
                             <p class="title">CHALLENGE TWO</p>
                             <p class="subtitle">Solve this challenge!</p>
+                            <p class="subtitle">
+                                Corrie’s move-in date is September 21st. She wants to make sure that she sees her friend in California every 3 months, excluding summer time. When is the fourth time that Corrie can go visit her friend in California? 
+                            </p>
+                            <p>(A)July 2022      (B)December 2022      (C)October 2023      (D)February 2023</p><!--B-->
+                            <input type="text" id="challengeTwoAns">
+                            <button type="button" id="challengeTwoEnter">Submit your answer!</button>
                                 </div>
                             </div>
                         </div>
@@ -81,6 +95,11 @@
                             <div class="hidden tile is-child notification is-info" id="challengeThree">
                             <p class="title">CHALLENGE THREE</p>
                             <p class="subtitle">Solve this challenge!</p>
+                            <p class="subtitle">
+                                Fay has 30 plants in her dorm room. It takes her 7 minutes to water each plant. If she wants to water all of her plants, how long will she spend watering plants?
+                            </p>
+                            <input type="text" id="challengeThreeAns">
+                            <button type="button" id="challengeThreeEnter">Submit your answer!</button>
                                 </div>
                             </div>
                         </div>
