@@ -388,10 +388,10 @@ function onKeyDown(event) {
   if (player.col == maze.challengeOneCol && player.row == maze.challengeOneRow) {
         tileOne.classList.remove("hidden");
   }
-   if (player.col == this.challengeTwoCol && player.row == this.challengeTwoRow) {
+   if (player.col == maze.challengeTwoCol && player.row == maze.challengeTwoRow) {
         tileTwo.classList.remove("hidden");
   }
-   if (player.col == this.challengeThreeCol && player.row == this.challengeThreeRow) {
+   if (player.col == maze.challengeThreeCol && player.row == maze.challengeThreeRow) {
         tileThree.classList.remove("hidden");
   }
     //ending pop up 
@@ -401,6 +401,7 @@ function onKeyDown(event) {
             alert("You made it to the end of the maze. Congrats! Your time was " + minutes +" minutes and " + seconds + " seconds"); 
         }, 500);
        stopTimer();
+       alert("Please enter your namet to save your time!");
     } 
 }
 
@@ -413,7 +414,7 @@ function onLoad() {
   progressBar = document.querySelector('#progressBar');  
 
   player = new Player();
-  maze = new Maze(20, 20, 50);
+  maze = new Maze(5, 5, 20);
 
   document.addEventListener('keydown', onKeyDown);
   //document.getElementById('generate').addEventListener('click', onClick);
