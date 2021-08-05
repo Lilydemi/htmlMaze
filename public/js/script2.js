@@ -445,7 +445,7 @@ function onLoad() {
   progressBar = document.querySelector('#progressBar');  
 
   player = new Player();
-  maze = new Maze(20, 20, 50);
+  maze = new Maze(5, 5, 50);
 
   document.addEventListener('keydown', onKeyDown);
   //document.getElementById('generate').addEventListener('click', onClick);
@@ -458,7 +458,7 @@ function randomChallenge()  {
 }
 
 const makeProgress = (challengeCount) => {
-    progressBar.value = challengeCount * 25;
+    progressBar.value = challengeCount * 20;
     //progressBar.innerHTML = `<progress id="progressBar" class = "progress is-success is-large" value = ${challengeCount * 25} max = "100">${challengeCount * 25}%</progress>`
 }
 
@@ -474,7 +474,7 @@ challengeOneEnter.addEventListener('click',(e)=>{
     challengeCount++;
     makeProgress(challengeCount);    
     if(!(challengeOneAns.value.toLowerCase == 'c' )){
-        for(let i=0;i<15;i++){
+        for(let i=0;i<2;i++){
             addTime();
         }
     }
@@ -485,7 +485,7 @@ challengeTwoEnter.addEventListener('click',(e)=>{
     challengeCount++;
     makeProgress(challengeCount);
     if(!(challengeTwoAns.value.toLowerCase == 'b' )){
-        for(let i=0;i<15;i++){
+        for(let i=0;i<2;i++){
             addTime();
         }
     }
@@ -496,7 +496,7 @@ challengeThreeEnter.addEventListener('click',(e)=>{
     challengeCount++;
     makeProgress(challengeCount);
     if(!(challengeThreeAns.value.toLowerCase == 'b' )){
-        for(let i=0;i<15;i++){
+        for(let i=0;i<2;i++){
             addTime();
         }
     }
