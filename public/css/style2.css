@@ -7,7 +7,6 @@
 }
 
 body {
-  display: grid;
   grid-gap: 10px;
   grid-template-areas:
     'header header'
@@ -17,7 +16,7 @@ body {
   grid-template-columns: max-content max-content;
   grid-template-rows: max-content max-content max-content max-content;
   height: max-content;
-  width: max-content;
+  width: 100%;
 }
 
 header {
@@ -50,13 +49,13 @@ label {
 }
 
 .controls {
-  display: grid;
+  /* display: grid; */
   grid-template-areas:
     '. up .'
     'left . right'
     '. down .';
-    grid-template-columns: max-content max-content max-content;
-    grid-template-rows: max-content max-content max-content;
+    /*grid-template-columns: max-content max-content max-content;
+    grid-template-rows: max-content max-content max-content;*/
 }
 
 .up, .right, .down, .left {
@@ -67,7 +66,7 @@ label {
   font-weight: bold;
   height: 35px;
   padding: auto;
-  width: 35px;
+  /*width: 100%;*/
 }
 
 .up {
@@ -102,8 +101,8 @@ footer > a:hover {
       'canvas canvas'
       'settings controls'
       'footer footer';
-    grid-template-columns: max-content max-content;
-    grid-template-rows: max-content max-content max-content max-content;
+    /*grid-template-columns: max-content max-content;
+    grid-template-rows: max-content max-content max-content max-content;*/
   }
 }
 
@@ -112,5 +111,11 @@ footer > a:hover {
 }
 
 #challengeOne {
+    display: none;
+}
+#challengeTwo {
+    display: none;
+}
+#challengeThree {
     display: none;
 }
