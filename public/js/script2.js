@@ -9,6 +9,7 @@ var count = 0;
 let oneCh = false;
 let twoCh = false;
 let thrCh = false;
+let googleUser
 
 
 //let playerIcon = new Image();
@@ -413,7 +414,21 @@ function saveScore() {
                 text =  person + " - " + minutes + ":" + seconds;
             }
         document.getElementById("score").innerHTML = text;
+            const submitScore = () => {
+                // 1. Capture the form data
+                // 2. Format the data and write it to our database
+                    console.log(person, minutes, seconds)
+                    firebase.database().ref().push({
+                        name: person,
+                        minutes: minutes,
+                        seconds: seconds
+                    })
+
+                }
+            submitScore();
         }
+
+
 
 function onLoad() {
 
@@ -424,7 +439,7 @@ function onLoad() {
   progressBar = document.querySelector('#progressBar');  
 
   player = new Player();
-  maze = new Maze(20, 20, 50);
+  maze = new Maze(5, 5, 50);
 
   document.addEventListener('keydown', onKeyDown);
   //document.getElementById('generate').addEventListener('click', onClick);
