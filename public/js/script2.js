@@ -9,7 +9,7 @@ var count = 0;
 let oneCh = false;
 let twoCh = false;
 let thrCh = false;
-let googleUser
+var challengeCount = 0;
 
 
 //let playerIcon = new Image();
@@ -257,6 +257,7 @@ class Maze {
                     oneCh = true;
                     console.log("oneCh: " + oneCh);
                     this.challengeColorOne = "#FFFFFF";
+                    challengeCount++;
                     //myFunction1();
             }
             else if(player.col==this.challengeTwoCol && 
@@ -264,6 +265,7 @@ class Maze {
                     twoCh = true;
                     console.log("TwoCh: " + twoCh);
                     this.challengeColorTwo = "#FFFFFF";
+                    challengeCount++;
                     //myFunction2();
    
                 }
@@ -272,6 +274,7 @@ class Maze {
                     thrCh = true;
                     console.log("threeCh: " + thrCh);
                     this.challengeColorThree = "#FFFFFF";
+                    challengeCount++;
                     //myFunction3();
             }
 
