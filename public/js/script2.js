@@ -255,12 +255,14 @@ class Maze {
                     oneCh = true;
                     console.log("oneCh: " + oneCh);
                     this.challengeColorOne = "#FFFFFF";
+                    //myFunction1();
             }
             else if(player.col==this.challengeTwoCol && 
                 player.row==this.challengeTwoRow && twoCh == false){
                     twoCh = true;
                     console.log("TwoCh: " + twoCh);
                     this.challengeColorTwo = "#FFFFFF";
+                    //myFunction2();
    
                 }
             else if (player.col==this.challengeThreeCol && 
@@ -268,6 +270,7 @@ class Maze {
                     thrCh = true;
                     console.log("threeCh: " + thrCh);
                     this.challengeColorThree = "#FFFFFF";
+                    //myFunction3();
             }
 
       }
@@ -413,7 +416,7 @@ function onLoad() {
   progressBar = document.querySelector('#progressBar');  
 
   player = new Player();
-  maze = new Maze(20, 20, 50);
+  maze = new Maze(5, 5, 50);
 
   document.addEventListener('keydown', onKeyDown);
   //document.getElementById('generate').addEventListener('click', onClick);
@@ -427,4 +430,3 @@ function randomChallenge()  {
 const makeProgress = (challengeCount) => {
     return `<progress class = "progress is-success is-large" value = ${challengeCount * 25} max = "100">${challengeCount * 25}%</progress>`
 }
-   
