@@ -420,7 +420,21 @@ function saveScore() {
                 text =  person + " - " + minutes + ":" + seconds;
             }
         document.getElementById("score").innerHTML = text;
+            const submitScore = () => {
+                // 1. Capture the form data
+                // 2. Format the data and write it to our database
+                    console.log(person, minutes, seconds)
+                    firebase.database().ref().push({
+                        name: person,
+                        minutes: minutes,
+                        seconds: seconds
+                    })
+
+                }
+            submitScore();
         }
+
+
 
 function onLoad() {
 

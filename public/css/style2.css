@@ -110,16 +110,6 @@ footer > a:hover {
   display: none !important;
 }
 
-#challengeOne {
-    display: none;
-}
-#challengeTwo {
-    display: none;
-}
-#challengeThree {
-    display: none;
-}
-
 .hide{
     display: none;
 }
