@@ -10,6 +10,7 @@ let oneCh = false;
 let twoCh = false;
 let thrCh = false;
 
+
 //let playerIcon = new Image();
 
 
@@ -342,10 +343,8 @@ function startTimer(){
 function stopTimer(){
     if (seconds !== 0  || minutes !== 0){
         let time = minutes + ":" + seconds;  
-        clearTimeout(timeCount);     
+        clearTimeout(timeCount);   
     }
-    
-
 }
 
      tileOne = document.querySelector("#challengeOne");
@@ -401,8 +400,20 @@ function onKeyDown(event) {
             alert("You made it to the end of the maze. Congrats! Your time was " + minutes +" minutes and " + seconds + " seconds"); 
         }, 500);
        stopTimer();
+       document.getElementById("saveBtn").style.display = "initial";
+        
     } 
 }
+function saveScore() {
+        let text;
+        let person = prompt("Please enter your name:", "Name");
+            if (person == null || person == "") {
+                text = "User cancelled the prompt.";
+            } else {
+                text =  person + " - " + minutes + ":" + seconds;
+            }
+        document.getElementById("score").innerHTML = text;
+        }
 
 function onLoad() {
 
@@ -413,11 +424,12 @@ function onLoad() {
   progressBar = document.querySelector('#progressBar');  
 
   player = new Player();
-  maze = new Maze(20, 20, 50);
+  maze = new Maze(5, 5, 50);
 
   document.addEventListener('keydown', onKeyDown);
   //document.getElementById('generate').addEventListener('click', onClick);
 }
+
 
 function randomChallenge()  {
    //after button is clicked to submit value or final square is reached

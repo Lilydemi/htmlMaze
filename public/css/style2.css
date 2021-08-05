@@ -119,3 +119,7 @@ footer > a:hover {
 #challengeThree {
     display: none;
 }
+
+.hide{
+    display: none;
+}
