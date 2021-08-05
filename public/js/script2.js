@@ -257,12 +257,14 @@ class Maze {
                     oneCh = true;
                     console.log("oneCh: " + oneCh);
                     this.challengeColorOne = "#FFFFFF";
+                    //myFunction1();
             }
             else if(player.col==this.challengeTwoCol && 
                 player.row==this.challengeTwoRow && twoCh == false){
                     twoCh = true;
                     console.log("TwoCh: " + twoCh);
                     this.challengeColorTwo = "#FFFFFF";
+                    //myFunction2();
    
                 }
             else if (player.col==this.challengeThreeCol && 
@@ -270,6 +272,7 @@ class Maze {
                     thrCh = true;
                     console.log("threeCh: " + thrCh);
                     this.challengeColorThree = "#FFFFFF";
+                    //myFunction3();
             }
 
       }
@@ -461,3 +464,33 @@ const challengeTwoAns = document.querySelector("#challengeTwoAns");
 const challengeTwoEnter = document.querySelector("#challengeTwoEnter");
 const challengeThreeAns = document.querySelector("#challengeThreeAns");
 const challengeThreeEnter = document.querySelector("#challengeThreeEnter");
+
+challengeOneEnter.addEventListener('click',(e)=>{
+    challengeCount++;
+    makeProgress(challengeCount);    
+    if(!(challengeOneAns.value.toLowerCase == 'b' )){
+        for(let i=0;i<15;i++){
+            addTime();
+        }
+    }
+})
+
+challengeTwoEnter.addEventListener('click',(e)=>{
+    challengeCount++;
+    makeProgress(challengeCount);
+    if(!(challengeOneAns.value.toLowerCase == 'b' )){
+        for(let i=0;i<15;i++){
+            addTime();
+        }
+    }
+})
+
+challengeThreeEnter.addEventListener('click',(e)=>{
+    challengeCount++;
+    makeProgress(challengeCount);
+    if(!(challengeOneAns.value.toLowerCase == 'b' )){
+        for(let i=0;i<15;i++){
+            addTime();
+        }
+    }
+})
