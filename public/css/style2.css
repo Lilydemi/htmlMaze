@@ -110,3 +110,6 @@ footer > a:hover {
   display: none !important;
 }
 
+.hide{
+    display: none;
+}
