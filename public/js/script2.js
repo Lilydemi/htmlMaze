@@ -442,7 +442,7 @@ function onLoad() {
   progressBar = document.querySelector('#progressBar');  
 
   player = new Player();
-  maze = new Maze(5, 5, 50);
+  maze = new Maze(20, 20, 50);
 
   document.addEventListener('keydown', onKeyDown);
   //document.getElementById('generate').addEventListener('click', onClick);
