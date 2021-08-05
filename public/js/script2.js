@@ -446,3 +446,40 @@ function randomChallenge()  {
 const makeProgress = (challengeCount) => {
     return `<progress class = "progress is-success is-large" value = ${challengeCount * 25} max = "100">${challengeCount * 25}%</progress>`
 }
+
+const challengeOneAns = document.querySelector("#challengeOneAns");
+const challengeOneEnter = document.querySelector("#challengeOneEnter");
+const challengeTwoAns = document.querySelector("#challengeTwoAns");
+const challengeTwoEnter = document.querySelector("#challengeTwoEnter");
+const challengeThreeAns = document.querySelector("#challengeThreeAns");
+const challengeThreeEnter = document.querySelector("#challengeThreeEnter");
+
+challengeOneEnter.addEventListener('click',(e)=>{
+    challengeCount++;
+    makeProgress(challengeCount);    
+    if(!(challengeOneAns.value.toLowerCase == 'b' )){
+        for(let i=0;i<15;i++){
+            addTime();
+        }
+    }
+})
+
+challengeTwoEnter.addEventListener('click',(e)=>{
+    challengeCount++;
+    makeProgress(challengeCount);
+    if(!(challengeOneAns.value.toLowerCase == 'b' )){
+        for(let i=0;i<15;i++){
+            addTime();
+        }
+    }
+})
+
+challengeThreeEnter.addEventListener('click',(e)=>{
+    challengeCount++;
+    makeProgress(challengeCount);
+    if(!(challengeOneAns.value.toLowerCase == 'b' )){
+        for(let i=0;i<15;i++){
+            addTime();
+        }
+    }
+})
