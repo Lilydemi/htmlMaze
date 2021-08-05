@@ -387,10 +387,10 @@ function onKeyDown(event) {
   if (player.col == maze.challengeOneCol && player.row == maze.challengeOneRow) {
         tileOne.classList.remove("hidden");
   }
-   if (player.col == this.challengeTwoCol && player.row == this.challengeTwoRow) {
+   if (player.col == maze.challengeTwoCol && player.row == maze.challengeTwoRow) {
         tileTwo.classList.remove("hidden");
   }
-   if (player.col == this.challengeThreeCol && player.row == this.challengeThreeRow) {
+   if (player.col == maze.challengeThreeCol && player.row == maze.challengeThreeRow) {
         tileThree.classList.remove("hidden");
   }
     //ending pop up 
@@ -424,7 +424,7 @@ function onLoad() {
   progressBar = document.querySelector('#progressBar');  
 
   player = new Player();
-  maze = new Maze(5, 5, 50);
+  maze = new Maze(20, 20, 50);
 
   document.addEventListener('keydown', onKeyDown);
   //document.getElementById('generate').addEventListener('click', onClick);
@@ -439,4 +439,10 @@ function randomChallenge()  {
 const makeProgress = (challengeCount) => {
     return `<progress class = "progress is-success is-large" value = ${challengeCount * 25} max = "100">${challengeCount * 25}%</progress>`
 }
-   
+
+const challengeOneAns = document.querySelector("#challengeOneAns");
+const challengeOneEnter = document.querySelector("#challengeOneEnter");
+const challengeTwoAns = document.querySelector("#challengeTwoAns");
+const challengeTwoEnter = document.querySelector("#challengeTwoEnter");
+const challengeThreeAns = document.querySelector("#challengeThreeAns");
+const challengeThreeEnter = document.querySelector("#challengeThreeEnter");
