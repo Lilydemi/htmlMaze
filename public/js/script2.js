@@ -388,10 +388,10 @@ function onKeyDown(event) {
   if (player.col == maze.challengeOneCol && player.row == maze.challengeOneRow) {
         tileOne.classList.remove("hidden");
   }
-   if (player.col == this.challengeTwoCol && player.row == this.challengeTwoRow) {
+   if (player.col == maze.challengeTwoCol && player.row == maze.challengeTwoRow) {
         tileTwo.classList.remove("hidden");
   }
-   if (player.col == this.challengeThreeCol && player.row == this.challengeThreeRow) {
+   if (player.col == maze.challengeThreeCol && player.row == maze.challengeThreeRow) {
         tileThree.classList.remove("hidden");
   }
     //ending pop up 
