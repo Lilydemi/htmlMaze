@@ -435,3 +435,24 @@ const challengeTwoAns = document.querySelector("#challengeTwoAns");
 const challengeTwoEnter = document.querySelector("#challengeTwoEnter");
 const challengeThreeAns = document.querySelector("#challengeThreeAns");
 const challengeThreeEnter = document.querySelector("#challengeThreeEnter");
+
+challengeOneEnter.addEventListener('click',(e)=>{
+    if(challengeOneAns.value.toLowerCase == 'b' ){
+        challengeCount++;
+        makeProgress(challengeCount);
+    }
+})
+
+challengeTwoEnter.addEventListener('click',(e)=>{
+    if(challengeTwoAns.value.toLowerCase == 'b' ){
+        challengeCount++;
+        makeProgress(challengeCount);
+    }
+})
+
+challengeThreeEnter.addEventListener('click',(e)=>{
+    if(challengeThreeAns.value.toLowerCase == 'b' ){
+        challengeCount++;
+        makeProgress(challengeCount);
+    }
+})
