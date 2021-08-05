@@ -455,9 +455,11 @@ function randomChallenge()  {
 }
 
 const makeProgress = (challengeCount) => {
-    return `<progress class = "progress is-success is-large" value = ${challengeCount * 25} max = "100">${challengeCount * 25}%</progress>`
+    progressBar.value = challengeCount * 25;
+    //progressBar.innerHTML = `<progress id="progressBar" class = "progress is-success is-large" value = ${challengeCount * 25} max = "100">${challengeCount * 25}%</progress>`
 }
 
+let progressBar = document.querySelector("#progressBar");
 const challengeOneAns = document.querySelector("#challengeOneAns");
 const challengeOneEnter = document.querySelector("#challengeOneEnter");
 const challengeTwoAns = document.querySelector("#challengeTwoAns");
@@ -468,29 +470,32 @@ const challengeThreeEnter = document.querySelector("#challengeThreeEnter");
 challengeOneEnter.addEventListener('click',(e)=>{
     challengeCount++;
     makeProgress(challengeCount);    
-    if(!(challengeOneAns.value.toLowerCase == 'b' )){
+    if(!(challengeOneAns.value.toLowerCase == 'c' )){
         for(let i=0;i<15;i++){
             addTime();
         }
     }
+    challengeOneAns.innerHTML = "";
 })
 
 challengeTwoEnter.addEventListener('click',(e)=>{
     challengeCount++;
     makeProgress(challengeCount);
-    if(!(challengeOneAns.value.toLowerCase == 'b' )){
+    if(!(challengeTwoAns.value.toLowerCase == 'b' )){
         for(let i=0;i<15;i++){
             addTime();
         }
     }
+    challengeTwoAns.innerHTML = "";
 })
 
 challengeThreeEnter.addEventListener('click',(e)=>{
     challengeCount++;
     makeProgress(challengeCount);
-    if(!(challengeOneAns.value.toLowerCase == 'b' )){
+    if(!(challengeThreeAns.value.toLowerCase == 'b' )){
         for(let i=0;i<15;i++){
             addTime();
         }
     }
+    challengeThreeAns.innerHTML = "";
 })
